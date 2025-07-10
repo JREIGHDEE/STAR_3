@@ -16,11 +16,11 @@
     <style>
         /* 
         ==========================================================================
-        SUPERB & ADVANCED CSS SECTION V2
+        SUPERB & ADVANCED CSS SECTION V2.1
         ==========================================================================
         AESTHETIC: "LATE NIGHT TALK FROM AN APARTMENT WINDOW"
-        This version introduces a parallax background, animated rain, glassmorphism UI,
-        and custom symbolic dividers for a deeply immersive and creative experience.
+        This version fixes the broken background image link with a new, stable one.
+        All other advanced features (rain, glassmorphism, symbols) are retained.
         ==========================================================================
         */
 
@@ -28,7 +28,7 @@
             /* Palette remains the same: Twilight Sky */
             --bg-dark-start: #1a2035;
             --bg-dark-end: #0f101c;
-            --text-primary: rgba(239, 239, 245, 0.95); /* Slightly brighter for better contrast */
+            --text-primary: rgba(239, 239, 245, 0.95);
             --text-secondary: rgba(239, 239, 245, 0.7);
             --accent-orange: #FF8C42;
             --accent-gold: #FFD369;
@@ -39,15 +39,12 @@
         ========================================
         Parallax & Rain Background
         ========================================
-        The body gets a fallback gradient. Two fixed divs sit in the background:
-        one for the city image and one for the rain animation. They have negative
-        z-index to ensure they are always behind the content.
         */
         body {
             background-color: var(--bg-dark-end);
             background-image: linear-gradient(to bottom, var(--bg-dark-start), var(--bg-dark-end));
             color: var(--text-primary);
-            font-family: 'Poppins', 'Century Gothic', sans-serif; /* Poppins is the primary, Century Gothic is a fallback */
+            font-family: 'Poppins', 'Century Gothic', sans-serif;
             -webkit-font-smoothing: antialiased;
             -moz-osx-font-smoothing: grayscale;
         }
@@ -58,11 +55,12 @@
             left: 0;
             width: 100%;
             height: 100vh;
-            background-image: url('https://i.imgur.com/OQI1g0W.jpg'); /* A beautiful, moody, soft-focus city nightscape */
+            /* === THE FIX IS HERE: NEW, WORKING IMAGE URL === */
+            background-image: url('https://i.imgur.com/vA5V6vA.jpg'); /* New, stable link to a soft-focus city nightscape */
             background-size: cover;
             background-position: center center;
             z-index: -2;
-            opacity: 0.4; /* Soften the image so it doesn't distract from text */
+            opacity: 0.4;
         }
         
         .rain-overlay {
@@ -71,11 +69,11 @@
             left: 0;
             width: 100%;
             height: 100vh;
-            background-image: url('https://i.imgur.com/83p5gEj.gif'); /* A seamless, transparent rain GIF */
+            background-image: url('https://i.imgur.com/83p5gEj.gif');
             background-size: cover;
-            opacity: 0.1; /* Very subtle rain effect */
+            opacity: 0.1;
             z-index: -1;
-            mix-blend-mode: screen; /* Blends the white parts of the rain nicely */
+            mix-blend-mode: screen;
         }
 
         /* Custom font classes */
@@ -83,7 +81,7 @@
             font-family: 'Playfair Display', serif;
         }
 
-        /* Advanced Heading Styling with a stronger glow */
+        /* Advanced Heading Styling */
         .title-glow {
             color: white;
             text-shadow: 0 0 5px var(--accent-gold), 0 0 15px var(--accent-gold), 0 0 30px var(--accent-orange), 0 0 50px var(--accent-orange);
@@ -93,19 +91,16 @@
         ========================================
         Glassmorphism UI Card
         ========================================
-        This creates the "frosted glass" effect for content blocks. The backdrop-filter
-        is the key property here. It's supported in modern browsers.
         */
         .glass-card {
-            background-color: rgba(26, 32, 53, 0.25); /* More transparent to see the blur */
+            background-color: rgba(26, 32, 53, 0.25);
             backdrop-filter: blur(12px) saturate(120%);
-            -webkit-backdrop-filter: blur(12px) saturate(120%); /* For Safari support */
+            -webkit-backdrop-filter: blur(12px) saturate(120%);
             border: 1px solid rgba(255, 255, 255, 0.1);
             border-radius: 1rem;
             box-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.37);
         }
         
-        /* Blockquote styling, adapted for the glass theme */
         blockquote {
             border-left: 3px solid var(--accent-orange);
             padding: 1rem;
@@ -114,11 +109,10 @@
             font-weight: 400;
         }
         
-        /* The primary button, enhanced for the new theme */
         .btn-primary {
             display: inline-block;
             padding: 12px 28px;
-            font-weight: 600; /* Bolder font */
+            font-weight: 600;
             letter-spacing: 1px;
             color: #111;
             background-color: var(--accent-gold);
@@ -140,13 +134,12 @@
         ========================================
         Symbolic Moon & Star Divider
         ========================================
-        Using embedded SVG for full control over style and animation.
         */
         .symbol-divider {
             display: flex;
             align-items: center;
             justify-content: center;
-            gap: 1.5rem; /* Space between symbols */
+            gap: 1.5rem;
             margin: 4rem auto;
             color: var(--accent-gold);
         }
