@@ -8,110 +8,165 @@
     <!-- Tailwind CSS via CDN -->
     <script src="https://cdn.tailwindcss.com"></script>
     
-    <!-- Google Fonts: Playfair Display for headings, Inter for body -->
+    <!-- Google Fonts: Playfair Display for headings, Poppins as a Century Gothic alternative -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500&family=Playfair+Display:ital,wght@0,400;0,600;1,400&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,600;1,400&family=Poppins:wght@300;400;500;600&display=swap" rel="stylesheet">
 
     <style>
         /* 
         ==========================================================================
-        SUPERB & ADVANCED CSS SECTION
+        SUPERB & ADVANCED CSS SECTION V2
         ==========================================================================
-        NEW AESTHETIC: "A LATE NIGHT TALK"
-        The theme is now built around a deep, twilight-sky gradient. The accents
-        are warm sunset oranges and soft golds, evoking the feeling of a heartfelt
-        conversation happening as day turns to night.
+        AESTHETIC: "LATE NIGHT TALK FROM AN APARTMENT WINDOW"
+        This version introduces a parallax background, animated rain, glassmorphism UI,
+        and custom symbolic dividers for a deeply immersive and creative experience.
         ==========================================================================
         */
 
         :root {
-            /* Twilight Sky Palette */
-            --bg-dark-start: #1a2035; /* Deep indigo/purple */
-            --bg-dark-end: #0f101c; /* Near-black with a hint of blue */
-            --bg-surface: #1e1f2b; /* A slightly lighter, muted surface for cards */
-
-            /* Text & Accents */
-            --text-primary: rgba(239, 239, 245, 0.9); /* A softer, warmer white */
-            --text-secondary: rgba(239, 239, 245, 0.65);
-            
-            --accent-orange: #FF8C42; /* A vibrant, warm sunset orange */
-            --accent-gold: #FFD369; /* A softer, warmer gold for highlights */
-            
-            /* Glows that mimic warm light */
-            --accent-orange-glow: rgba(255, 140, 66, 0.2);
-            --accent-gold-glow: rgba(255, 211, 105, 0.25);
+            /* Palette remains the same: Twilight Sky */
+            --bg-dark-start: #1a2035;
+            --bg-dark-end: #0f101c;
+            --text-primary: rgba(239, 239, 245, 0.95); /* Slightly brighter for better contrast */
+            --text-secondary: rgba(239, 239, 245, 0.7);
+            --accent-orange: #FF8C42;
+            --accent-gold: #FFD369;
+            --accent-gold-glow: rgba(255, 211, 105, 0.3);
         }
 
-        /* Applying the theme */
+        /* 
+        ========================================
+        Parallax & Rain Background
+        ========================================
+        The body gets a fallback gradient. Two fixed divs sit in the background:
+        one for the city image and one for the rain animation. They have negative
+        z-index to ensure they are always behind the content.
+        */
         body {
-            background-color: var(--bg-dark-end); /* Fallback color */
+            background-color: var(--bg-dark-end);
             background-image: linear-gradient(to bottom, var(--bg-dark-start), var(--bg-dark-end));
             color: var(--text-primary);
-            font-family: 'Inter', sans-serif;
+            font-family: 'Poppins', 'Century Gothic', sans-serif; /* Poppins is the primary, Century Gothic is a fallback */
             -webkit-font-smoothing: antialiased;
             -moz-osx-font-smoothing: grayscale;
         }
+        
+        .parallax-bg {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100vh;
+            background-image: url('https://i.imgur.com/OQI1g0W.jpg'); /* A beautiful, moody, soft-focus city nightscape */
+            background-size: cover;
+            background-position: center center;
+            z-index: -2;
+            opacity: 0.4; /* Soften the image so it doesn't distract from text */
+        }
+        
+        .rain-overlay {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100vh;
+            background-image: url('https://i.imgur.com/83p5gEj.gif'); /* A seamless, transparent rain GIF */
+            background-size: cover;
+            opacity: 0.1; /* Very subtle rain effect */
+            z-index: -1;
+            mix-blend-mode: screen; /* Blends the white parts of the rain nicely */
+        }
 
-        /* Custom font classes for elegance */
+        /* Custom font classes */
         .font-heading {
             font-family: 'Playfair Display', serif;
         }
 
-        /* Advanced Heading Styling with a warm, sunset-like glow */
+        /* Advanced Heading Styling with a stronger glow */
         .title-glow {
-            text-shadow: 0 0 15px var(--accent-orange-glow), 0 0 30px var(--accent-orange-glow);
+            color: white;
+            text-shadow: 0 0 5px var(--accent-gold), 0 0 15px var(--accent-gold), 0 0 30px var(--accent-orange), 0 0 50px var(--accent-orange);
         }
 
-        /* Custom styling for blockquotes - a highlighted, intimate thought */
-        blockquote {
-            border-left: 3px solid var(--accent-orange);
-            background: linear-gradient(to right, rgba(255, 140, 66, 0.05), transparent);
-            color: var(--text-primary);
-            font-style: italic;
-            font-weight: 400;
-            letter-spacing: 0.5px;
+        /* 
+        ========================================
+        Glassmorphism UI Card
+        ========================================
+        This creates the "frosted glass" effect for content blocks. The backdrop-filter
+        is the key property here. It's supported in modern browsers.
+        */
+        .glass-card {
+            background-color: rgba(26, 32, 53, 0.25); /* More transparent to see the blur */
+            backdrop-filter: blur(12px) saturate(120%);
+            -webkit-backdrop-filter: blur(12px) saturate(120%); /* For Safari support */
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            border-radius: 1rem;
+            box-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.37);
         }
         
-        /* The main button style, now with the warm sunset color */
+        /* Blockquote styling, adapted for the glass theme */
+        blockquote {
+            border-left: 3px solid var(--accent-orange);
+            padding: 1rem;
+            background: linear-gradient(to right, rgba(255, 140, 66, 0.1), transparent);
+            font-style: italic;
+            font-weight: 400;
+        }
+        
+        /* The primary button, enhanced for the new theme */
         .btn-primary {
             display: inline-block;
             padding: 12px 28px;
-            font-weight: 500;
+            font-weight: 600; /* Bolder font */
             letter-spacing: 1px;
-            color: var(--bg-dark-end);
+            color: #111;
             background-color: var(--accent-gold);
             border-radius: 50px;
             text-transform: uppercase;
             text-decoration: none;
-            transition: transform 0.3s cubic-bezier(0.25, 0.8, 0.25, 1), 
-                        box-shadow 0.3s cubic-bezier(0.25, 0.8, 0.25, 1);
+            transition: all 0.3s cubic-bezier(0.25, 0.8, 0.25, 1);
             box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3);
         }
 
         .btn-primary:hover {
-            transform: translateY(-4px);
+            transform: translateY(-4px) scale(1.05);
             box-shadow: 0 10px 25px var(--accent-gold-glow);
-            background-color: var(--accent-orange); /* Shifts to a richer color on hover */
-        }
-        
-        /* Styling for the subtle horizontal rule divider */
-        .divider {
-            height: 1px;
-            width: 150px;
-            margin: 4rem auto;
-            background: linear-gradient(to right, transparent, var(--accent-gold), transparent);
-            opacity: 0.6;
+            background-color: var(--accent-orange);
+            color: white;
         }
         
         /* 
-        ==========================================================================
-        Scroll-Triggered Animation Classes (Unchanged - Logic is perfect)
-        ==========================================================================
+        ========================================
+        Symbolic Moon & Star Divider
+        ========================================
+        Using embedded SVG for full control over style and animation.
         */
+        .symbol-divider {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 1.5rem; /* Space between symbols */
+            margin: 4rem auto;
+            color: var(--accent-gold);
+        }
+        
+        .symbol-divider svg {
+            width: 24px;
+            height: 24px;
+            opacity: 0.7;
+            transition: opacity 0.3s, transform 0.3s;
+        }
+
+        .symbol-divider:hover svg {
+            opacity: 1;
+            transform: rotate(15deg) scale(1.1);
+        }
+
+        /* Scroll-Triggered Animation */
         .reveal {
             opacity: 0;
-            transform: translateY(30px);
+            transform: translateY(40px);
             transition: opacity 1s ease-out, transform 1.2s cubic-bezier(0.165, 0.84, 0.44, 1);
             transition-delay: 0.2s;
         }
@@ -125,6 +180,10 @@
 </head>
 <body class="overflow-x-hidden">
 
+    <!-- The Parallax Background Elements -->
+    <div class="parallax-bg"></div>
+    <div class="rain-overlay"></div>
+
     <!-- 
     ==========================================================================
     HERO SECTION
@@ -132,15 +191,15 @@
     -->
     <header class="h-screen w-full flex flex-col justify-center items-center text-center p-4">
         <div class="max-w-3xl reveal is-visible">
-            <h1 class="font-heading text-6xl md:text-8xl font-semibold text-white title-glow">For My Star</h1>
-            <p class="mt-6 text-lg md:text-xl text-stone-300">
+            <h1 class="font-heading text-6xl md:text-8xl font-semibold title-glow">For My Star</h1>
+            <p class="mt-6 text-lg md:text-xl text-stone-200">
                 A collection of late-night thoughts and feelings I've held onto.
-                <br>This is all for you.
+                <br>This is our story, told in moments.
             </p>
-            <a href="#section-1" class="btn-primary mt-12">Begin our story</a>
+            <a href="#section-1" class="btn-primary mt-12">Step inside</a>
         </div>
-        <div class="absolute bottom-10 animate-bounce">
-            <svg class="w-6 h-6 text-stone-400" fill="none" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" viewBox="0 0 24 24" stroke="currentColor">
+        <div class="absolute bottom-10 animate-bounce text-stone-300">
+            <svg class="w-6 h-6" fill="none" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" viewBox="0 0 24 24" stroke="currentColor">
                 <path d="M19 9l-7 7-7-7"></path>
             </svg>
         </div>
@@ -156,48 +215,52 @@
         <section id="section-1" class="min-h-screen py-20 px-4 flex items-center justify-center">
             <div class="max-w-2xl text-center reveal">
                 <h2 class="font-heading text-4xl md:text-5xl text-white mb-8">The Scent You Leave Behind</h2>
-                <div class="text-lg leading-relaxed space-y-6" style="color: var(--text-secondary);">
+                <div class="text-lg leading-relaxed space-y-6 text-stone-300">
                     <p>Your scent still clings to my shirt, so light—<br>a quiet echo of our day,<br>the warmth of arms wrapped soft and tight,<br>refusing now to fade away.</p>
                     <p>I press the cloth against my face,<br>and there you are, though not in sight—<br>the comfort of your quiet grace,<br>a hug that lingers through the night.</p>
                     <p>It smells like laughter, sun, and skin,<br>like whispered jokes and holding close,<br>like everything I tuck within<br>when parting feels like letting go.</p>
-                    <p>Some scents are fleeting, sharp, and gone—<br>but yours, like home, decides to stay.<br>And in that trace, I carry on,<br>wrapped in your love, though far away.</p>
-                    <p class="font-medium" style="color: var(--text-primary);">So every time I breathe you in,<br>I smile, because I know it's true:<br>this little world upon my skin<br>means I spent the whole day with you.</p>
+                    <p class="font-semibold text-white">So every time I breathe you in,<br>I smile, because I know it's true:<br>this little world upon my skin<br>means I spent the whole day with you.</p>
                 </div>
             </div>
         </section>
 
-        <div class="divider reveal"></div>
+        <div class="symbol-divider reveal">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2.25a.75.75 0 01.75.75v2.25a.75.75 0 01-1.5 0V3a.75.75 0 01.75-.75zM7.5 12a4.5 4.5 0 119 0 4.5 4.5 0 01-9 0zM18.894 6.166a.75.75 0 00-1.06-1.06l-1.591 1.59a.75.75 0 101.06 1.061l1.591-1.59zM21.75 12a.75.75 0 01-.75.75h-2.25a.75.75 0 010-1.5H21a.75.75 0 01.75.75zM17.834 18.894a.75.75 0 001.06-1.06l-1.59-1.591a.75.75 0 10-1.061 1.06l1.59 1.591zM12 18a.75.75 0 01.75.75v2.25a.75.75 0 01-1.5 0V18.75a.75.75 0 01.75-.75zM5.106 17.834a.75.75 0 001.06 1.06l1.591-1.59a.75.75 0 00-1.06-1.061l-1.591 1.59zM3 12a.75.75 0 01-.75.75H.75a.75.75 0 010-1.5h2.25A.75.75 0 013 12zM6.166 5.106a.75.75 0 00-1.06 1.06l1.59 1.591a.75.75 0 101.061-1.06l-1.59-1.591z"></path></svg>
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor"><path fill-rule="evenodd" d="M9.528 1.718a.75.75 0 01.162.819A8.97 8.97 0 009 6a9 9 0 009 9 8.97 8.97 0 003.463-.69.75.75 0 01.981.98 10.503 10.503 0 01-9.694 6.46c-5.799 0-10.5-4.701-10.5-10.5 0-3.51 1.713-6.635 4.398-8.552a.75.75 0 01.818.162z" clip-rule="evenodd"></path></svg>
+        </div>
 
         <!-- 
         ==========================================================================
-        SECTION 2: Worry, thus Warmth
+        SECTION 2: Worry, thus Warmth (with Glassmorphism)
         ==========================================================================
         -->
         <section id="section-2" class="container mx-auto py-20 px-6 lg:px-8">
-            <div class="reveal max-w-5xl mx-auto rounded-lg p-8 md:p-12 shadow-2xl" style="background-color: var(--bg-surface);">
+            <div class="reveal max-w-5xl mx-auto p-8 md:p-12 glass-card">
                 <div class="grid grid-cols-1 md:grid-cols-3 gap-8 md:gap-12">
                     <div class="md:col-span-1">
                         <h2 class="font-heading text-4xl md:text-5xl text-white leading-tight">Worry, thus Warmth</h2>
-                        <p class="mt-4" style="color: var(--text-secondary);">A realization that changed everything.</p>
+                        <p class="mt-4 text-stone-300">A realization that changed everything.</p>
                     </div>
-                    <div class="md:col-span-2 text-base md:text-lg leading-relaxed space-y-6" style="color: var(--text-secondary);">
+                    <div class="md:col-span-2 text-base md:text-lg leading-relaxed space-y-6 text-stone-300">
                         <p>I’ve been holding this in my chest for a while now... because what happened that day meant more to me than I think you realized.</p>
-                        <p>It was our first real fight... a small disagreement. I hated knowing I made you feel like I didn’t care when really, I care so much it aches sometimes. And when we talked, I felt it - that tightness in your voice.</p>
-                        <p>So I cried. Not because you yelled. You didn’t. I cried because you didn’t become someone else in your frustration. <span class="font-medium" style="color: var(--text-primary);">Because you stayed you.</span></p>
+                        <p>It was our first real fight... a small disagreement. When I finally woke up, guilt hit me. I hated knowing I made you feel like I didn’t care when really, I care so much it aches sometimes.</p>
+                        <p>So I cried. Not because you yelled. You didn’t. I cried because you didn’t become someone else in your frustration. <span class="font-semibold text-white">Because you stayed you.</span></p>
                         
-                        <blockquote class="my-6 p-4">
+                        <blockquote class="my-6">
                             Even in disappointment, you were still a safe place. Even in hurt, you didn’t let go. That night I felt something shift.
                         </blockquote>
                         
-                        <p>A few nights later... we were simply dreaming. You asked me what I pictured for our future... A small apartment with warm light, wooden floors, your half-full mug, my paints, a dog, and a cat. Our home.</p>
-                        <p>We were honest. We were both scared. But through that worry, we stayed with the vision. Because we know it’s not just the destination that matters, but who we’re walking with.</p>
-                        <p class="font-semibold" style="color: var(--text-primary);">This is a reminder of how even in frustration, you showed me grace. And in fear, you gave me hope. Thank you for loving me the way you do.</p>
+                        <p>A few nights later... we were simply dreaming. We imagined a small apartment with warm light, wooden floors, a dog, and a cat. Our home.</p>
+                        <p class="font-semibold text-white">This is a reminder of how even in frustration, you showed me grace. And in fear, you gave me hope. Thank you for loving me the way you do.</p>
                     </div>
                 </div>
             </div>
         </section>
         
-        <div class="divider reveal"></div>
+        <div class="symbol-divider reveal">
+             <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2.25a.75.75 0 01.75.75v2.25a.75.75 0 01-1.5 0V3a.75.75 0 01.75-.75zM7.5 12a4.5 4.5 0 119 0 4.5 4.5 0 01-9 0zM18.894 6.166a.75.75 0 00-1.06-1.06l-1.591 1.59a.75.75 0 101.06 1.061l1.591-1.59zM21.75 12a.75.75 0 01-.75.75h-2.25a.75.75 0 010-1.5H21a.75.75 0 01.75.75zM17.834 18.894a.75.75 0 001.06-1.06l-1.59-1.591a.75.75 0 10-1.061 1.06l1.59 1.591zM12 18a.75.75 0 01.75.75v2.25a.75.75 0 01-1.5 0V18.75a.75.75 0 01.75-.75zM5.106 17.834a.75.75 0 001.06 1.06l1.591-1.59a.75.75 0 00-1.06-1.061l-1.591 1.59zM3 12a.75.75 0 01-.75.75H.75a.75.75 0 010-1.5h2.25A.75.75 0 013 12zM6.166 5.106a.75.75 0 00-1.06 1.06l1.59 1.591a.75.75 0 101.061-1.06l-1.59-1.591z"></path></svg>
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor"><path fill-rule="evenodd" d="M9.528 1.718a.75.75 0 01.162.819A8.97 8.97 0 009 6a9 9 0 009 9 8.97 8.97 0 003.463-.69.75.75 0 01.981.98 10.503 10.503 0 01-9.694 6.46c-5.799 0-10.5-4.701-10.5-10.5 0-3.51 1.713-6.635 4.398-8.552a.75.75 0 01.818.162z" clip-rule="evenodd"></path></svg>
+        </div>
 
         <!-- 
         ==========================================================================
@@ -207,24 +270,26 @@
         <section id="section-3" class="min-h-screen py-20 px-4 flex items-center justify-center">
             <div class="max-w-2xl text-left reveal">
                 <h2 class="font-heading text-4xl md:text-5xl text-white mb-2 text-center">That Summer Night I Cried</h2>
-                <p class="text-center mb-10" style="color: var(--text-secondary);">When "I miss you" became real.</p>
-                <div class="text-lg leading-relaxed space-y-6" style="color: var(--text-secondary);">
-                    <p>It finally happened. The kind of missing that doesn’t just sit quietly... but claws at your chest until it spills out in tears. Summer class was exhausting.</p>
-                    <p>I was barely hanging on. My anxiety was through the roof. Home wasn’t even home anymore. I had no space to breathe. I missed you every day... but one night, it wasn’t just a message. I typed “I miss you” like I always did. Then I broke.</p>
-                    <p>Tears started coming and they didn’t stop. I wanted you so badly in that moment, not just to talk to, but to hold me. To ground me. I didn’t want to be brave or okay or strong. <span class="font-medium" style="color: var(--text-primary);">I just wanted you.</span></p>
+                <p class="text-center text-stone-300 mb-10">When "I miss you" became real.</p>
+                <div class="text-lg leading-relaxed space-y-6 text-stone-300">
+                    <p>It finally happened. The kind of missing that claws at your chest until it spills out in tears. Summer class was one of the hardest, most exhausting times.</p>
+                    <p>I was barely hanging on. My anxiety was through the roof. Home wasn’t even home. I had no space to breathe. I missed you every day... but one night, I typed “I miss you” like I always did. Then I broke.</p>
+                    <p>I wanted you so badly in that moment, not just to talk to, but to hold me. To ground me. I didn’t want to be brave or strong. <span class="font-semibold text-white">I just wanted you.</span></p>
 
-                    <blockquote class="my-8 p-6 text-xl text-center">
+                    <blockquote class="my-8 py-6 text-xl text-center">
                         I cried because I missed my home.<br>
                         <span class="font-semibold" style="color: var(--accent-gold);">And that’s you.</span>
                     </blockquote>
                     
-                    <p>And it hit me. This was what you’d felt... That deep, physical kind of missing. I’m late to it. But I get it now. And god, it hurts.</p>
-                    <p>I’ll keep holding on until I’m back in your arms.</p>
+                    <p>And it hit me. This was what you’d felt. That deep, physical kind of missing. I’m late to it. But I get it now. And god, it hurts.</p>
                 </div>
             </div>
         </section>
 
-        <div class="divider reveal"></div>
+        <div class="symbol-divider reveal">
+             <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2.25a.75.75 0 01.75.75v2.25a.75.75 0 01-1.5 0V3a.75.75 0 01.75-.75zM7.5 12a4.5 4.5 0 119 0 4.5 4.5 0 01-9 0zM18.894 6.166a.75.75 0 00-1.06-1.06l-1.591 1.59a.75.75 0 101.06 1.061l1.591-1.59zM21.75 12a.75.75 0 01-.75.75h-2.25a.75.75 0 010-1.5H21a.75.75 0 01.75.75zM17.834 18.894a.75.75 0 001.06-1.06l-1.59-1.591a.75.75 0 10-1.061 1.06l1.59 1.591zM12 18a.75.75 0 01.75.75v2.25a.75.75 0 01-1.5 0V18.75a.75.75 0 01.75-.75zM5.106 17.834a.75.75 0 001.06 1.06l1.591-1.59a.75.75 0 00-1.06-1.061l-1.591 1.59zM3 12a.75.75 0 01-.75.75H.75a.75.75 0 010-1.5h2.25A.75.75 0 013 12zM6.166 5.106a.75.75 0 00-1.06 1.06l1.59 1.591a.75.75 0 101.061-1.06l-1.59-1.591z"></path></svg>
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor"><path fill-rule="evenodd" d="M9.528 1.718a.75.75 0 01.162.819A8.97 8.97 0 009 6a9 9 0 009 9 8.97 8.97 0 003.463-.69.75.75 0 01.981.98 10.503 10.503 0 01-9.694 6.46c-5.799 0-10.5-4.701-10.5-10.5 0-3.51 1.713-6.635 4.398-8.552a.75.75 0 01.818.162z" clip-rule="evenodd"></path></svg>
+        </div>
 
         <!-- 
         ==========================================================================
@@ -234,13 +299,13 @@
         <section id="section-4" class="min-h-screen py-20 px-4 flex items-center justify-center">
             <div class="max-w-2xl text-center reveal">
                 <h2 class="font-heading text-4xl md:text-5xl text-white mb-8">Grace</h2>
-                <div class="text-lg leading-relaxed space-y-6 italic" style="color: var(--text-secondary);">
-                    <p>I woke up late, the sun already down,<br>your message waiting, quietly there.<br>But I moved first... not knowing I’d left you in midair.</p>
+                <div class="text-lg leading-relaxed space-y-6 italic text-stone-300">
+                    <p>I woke up late... not knowing I’d left you in midair.</p>
                     <p>That night, I carried my apology with care.<br>But I asked, through a tender breath,<br>“Is this space safe enough to share?”</p>
-                    <p>Sniffles broke my every line,<br>my breath in pieces, slow and rough.<br>But you stayed soft, you didn’t flinch<br>your gentleness was just enough.</p>
-                    <p>You said, “I didn’t see it clear.<br>I didn’t know you felt that way.”<br>And in that moment, grace arrived<br>not loud, just choosing me to stay.</p>
-                    <p>Because you’re still that—don’t you see?<br>You’re still my home, my heart, my friend.<br>And loving you through growing pains<br>is something I will never end.</p>
-                    <p class="font-semibold not-italic" style="color: var(--text-primary);">Mistakes will come—but so will grace,<br>and I’ll keep giving mine to you.</p>
+                    <p>My breath in pieces, slow and rough.<br>But you stayed soft, you didn’t flinch<br>your gentleness was just enough.</p>
+                    <p>You said, “I didn’t see it clear.”<br>And in that moment, grace arrived<br>not loud, just choosing me to stay.</p>
+                    <p>Because you’re still that—don’t you see?<br>You’re still my home, my heart, my friend.</p>
+                    <p class="font-semibold not-italic text-white">Mistakes will come—but so will grace,<br>and I’ll keep giving mine to you.</p>
                 </div>
             </div>
         </section>
@@ -250,11 +315,11 @@
         FOOTER / CONCLUSION
         ==========================================================================
         -->
-        <footer class="w-full py-24 text-center">
+        <footer class="w-full h-screen flex flex-col items-center justify-center text-center p-4">
             <div class="reveal">
-                <p class="font-heading text-3xl md:text-5xl text-white title-glow">You'll always be my steady light,<br>my safest home, my quiet place.</p>
-                <p class="mt-8 text-2xl" style="color: var(--text-primary);">I love you. Always.</p>
-                <p class="mt-2 text-xl" style="color: var(--text-secondary);">- Your Moon</p>
+                <p class="font-heading text-3xl md:text-5xl title-glow">You'll always be my steady light,<br>my safest home, my quiet place.</p>
+                <p class="mt-8 text-2xl text-stone-200">I love you. Always.</p>
+                <p class="mt-2 text-xl text-stone-300">- Your Moon</p>
             </div>
         </footer>
     </main>
