@@ -16,36 +16,34 @@
     <style>
         /* 
         ==========================================================================
-        SUPERB & ADVANCED CSS SECTION V3
+        SUPERB & ADVANCED CSS SECTION V4
         ==========================================================================
-        AESTHETIC: "A UNIVERSE OF MEMORIES"
-        This version replaces the static image with a fully dynamic, procedurally
-        generated starfield canvas animation. The background is now an integral,
-        living part of the theme.
+        AESTHETIC: "A QUIET, CONTEMPLATIVE UNIVERSE"
+        This version embraces a more somber and subtle tone. The color palette is
+        muted, glows are softened, and the starfield animation is calmer, creating
+        a deeply loving yet understated atmosphere.
         ==========================================================================
         */
 
         :root {
+            /* Muted, Somber Palette */
             --bg-dark-start: #1a2035;
             --bg-dark-end: #0f101c;
-            --text-primary: rgba(239, 239, 245, 0.95);
-            --text-secondary: rgba(239, 239, 245, 0.7);
-            --accent-orange: #FF8C42;
-            --accent-gold: #FFD369;
-            --accent-gold-glow: rgba(255, 211, 105, 0.3);
+            --text-warm-white: #EAE0D5; /* A soft, warm off-white for primary text */
+            --text-secondary: rgba(234, 224, 213, 0.65);
+            --accent-muted-gold: #A98C6A; /* A muted, heirloom gold for accents */
+            --accent-muted-glow: rgba(169, 140, 106, 0.3);
         }
 
         /* 
         ========================================
         Dynamic Starfield Background
         ========================================
-        The canvas element will be positioned fixed, behind all content.
-        The body retains its gradient for a deep space feel.
         */
         body {
             background-color: var(--bg-dark-end);
             background-image: linear-gradient(to bottom, var(--bg-dark-start), var(--bg-dark-end));
-            color: var(--text-primary);
+            color: var(--text-warm-white);
             font-family: 'Poppins', 'Century Gothic', sans-serif;
             -webkit-font-smoothing: antialiased;
             -moz-osx-font-smoothing: grayscale;
@@ -57,7 +55,7 @@
             left: 0;
             width: 100%;
             height: 100%;
-            z-index: -1; /* Place it behind all other content */
+            z-index: -1;
         }
         
         /* Custom font classes */
@@ -65,83 +63,79 @@
             font-family: 'Playfair Display', serif;
         }
 
-        /* Advanced Heading Styling */
+        /* Softer, more ethereal title glow */
         .title-glow {
             color: white;
-            text-shadow: 0 0 5px var(--accent-gold), 0 0 15px var(--accent-gold), 0 0 30px var(--accent-orange), 0 0 50px var(--accent-orange);
+            text-shadow: 0 0 20px rgba(234, 224, 213, 0.4);
         }
 
         /* 
         ========================================
-        Glassmorphism UI Card - More important than ever
+        Glassmorphism UI Card
         ========================================
-        This effect will look stunning floating over the animated starfield.
         */
         .glass-card {
             background-color: rgba(26, 32, 53, 0.25);
             backdrop-filter: blur(12px) saturate(120%);
             -webkit-backdrop-filter: blur(12px) saturate(120%);
-            border: 1px solid rgba(255, 255, 255, 0.1);
+            border: 1px solid rgba(234, 224, 213, 0.1);
             border-radius: 1rem;
             box-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.37);
         }
         
         blockquote {
-            border-left: 3px solid var(--accent-orange);
+            border-left: 3px solid var(--accent-muted-gold);
             padding: 1rem;
-            background: linear-gradient(to right, rgba(255, 140, 66, 0.1), transparent);
+            background: linear-gradient(to right, rgba(169, 140, 106, 0.1), transparent);
             font-style: italic;
             font-weight: 400;
         }
         
+        /* Understated button with the muted gold palette */
         .btn-primary {
             display: inline-block;
             padding: 12px 28px;
-            font-weight: 600;
+            font-weight: 500;
             letter-spacing: 1px;
-            color: #111;
-            background-color: var(--accent-gold);
+            color: var(--bg-dark-end);
+            background-color: var(--accent-muted-gold);
             border-radius: 50px;
             text-transform: uppercase;
             text-decoration: none;
             transition: all 0.3s cubic-bezier(0.25, 0.8, 0.25, 1);
             box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3);
+            border: 1px solid rgba(255, 255, 255, 0.1);
         }
 
         .btn-primary:hover {
-            transform: translateY(-4px) scale(1.05);
-            box-shadow: 0 10px 25px var(--accent-gold-glow);
-            background-color: var(--accent-orange);
-            color: white;
+            transform: translateY(-4px);
+            box-shadow: 0 8px 20px var(--accent-muted-glow);
+            background-color: var(--text-warm-white);
         }
         
-        /* 
-        ========================================
-        Symbolic Moon & Star Divider - Now more thematic than ever
-        ========================================
-        */
+        /* Symbolic Divider with the new accent color */
         .symbol-divider {
             display: flex;
             align-items: center;
             justify-content: center;
             gap: 1.5rem;
             margin: 4rem auto;
-            color: var(--accent-gold);
+            color: var(--accent-muted-gold);
         }
         
         .symbol-divider svg {
             width: 24px;
             height: 24px;
-            opacity: 0.7;
+            opacity: 0.6; /* More subtle */
             transition: opacity 0.3s, transform 0.3s;
         }
 
         .symbol-divider:hover svg {
             opacity: 1;
-            transform: rotate(15deg) scale(1.1);
+            transform: scale(1.1); /* Removed rotation for a calmer effect */
         }
 
-        /* Scroll-Triggered Animation */
+        /* Scroll-Triggered Animation (Unchanged) */
         .reveal {
             opacity: 0;
             transform: translateY(40px);
@@ -169,13 +163,13 @@
     <header class="h-screen w-full flex flex-col justify-center items-center text-center p-4 relative z-10">
         <div class="max-w-3xl reveal is-visible">
             <h1 class="font-heading text-6xl md:text-8xl font-semibold title-glow">For My Star</h1>
-            <p class="mt-6 text-lg md:text-xl text-stone-200">
+            <p class="mt-6 text-lg md:text-xl" style="color: var(--text-secondary);">
                 A collection of late-night thoughts and feelings I've held onto.
                 <br>This is our story, told in moments.
             </p>
-            <a href="#section-1" class="btn-primary mt-12">Step into our universe</a>
+            <a href="#section-1" class="btn-primary mt-12">Begin</a>
         </div>
-        <div class="absolute bottom-10 animate-bounce text-stone-300">
+        <div class="absolute bottom-10 animate-bounce" style="color: var(--text-secondary);">
             <svg class="w-6 h-6" fill="none" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" viewBox="0 0 24 24" stroke="currentColor">
                 <path d="M19 9l-7 7-7-7"></path>
             </svg>
@@ -192,11 +186,11 @@
         <section id="section-1" class="min-h-screen py-20 px-4 flex items-center justify-center">
             <div class="max-w-2xl text-center reveal">
                 <h2 class="font-heading text-4xl md:text-5xl text-white mb-8">The Scent You Leave Behind</h2>
-                <div class="text-lg leading-relaxed space-y-6 text-stone-300">
+                <div class="text-lg leading-relaxed space-y-6" style="color: var(--text-secondary);">
                     <p>Your scent still clings to my shirt, so light—<br>a quiet echo of our day,<br>the warmth of arms wrapped soft and tight,<br>refusing now to fade away.</p>
                     <p>I press the cloth against my face,<br>and there you are, though not in sight—<br>the comfort of your quiet grace,<br>a hug that lingers through the night.</p>
                     <p>It smells like laughter, sun, and skin,<br>like whispered jokes and holding close,<br>like everything I tuck within<br>when parting feels like letting go.</p>
-                    <p class="font-semibold text-white">So every time I breathe you in,<br>I smile, because I know it's true:<br>this little world upon my skin<br>means I spent the whole day with you.</p>
+                    <p class="font-semibold" style="color: var(--text-warm-white);">So every time I breathe you in,<br>I smile, because I know it's true:<br>this little world upon my skin<br>means I spent the whole day with you.</p>
                 </div>
             </div>
         </section>
@@ -216,19 +210,19 @@
                 <div class="grid grid-cols-1 md:grid-cols-3 gap-8 md:gap-12">
                     <div class="md:col-span-1">
                         <h2 class="font-heading text-4xl md:text-5xl text-white leading-tight">Worry, thus Warmth</h2>
-                        <p class="mt-4 text-stone-300">A realization that changed everything.</p>
+                        <p class="mt-4" style="color: var(--text-secondary);">A realization that changed everything.</p>
                     </div>
-                    <div class="md:col-span-2 text-base md:text-lg leading-relaxed space-y-6 text-stone-300">
+                    <div class="md:col-span-2 text-base md:text-lg leading-relaxed space-y-6" style="color: var(--text-secondary);">
                         <p>I’ve been holding this in my chest... because what happened that day meant more to me than I think you realized.</p>
                         <p>It was our first real fight... a small disagreement. I hated knowing I made you feel like I didn’t care when really, I care so much it aches sometimes.</p>
-                        <p>So I cried. Not because you yelled. You didn’t. I cried because you didn’t become someone else in your frustration. <span class="font-semibold text-white">Because you stayed you.</span></p>
+                        <p>So I cried. Not because you yelled. You didn’t. I cried because you didn’t become someone else in your frustration. <span class="font-semibold" style="color: var(--text-warm-white);">Because you stayed you.</span></p>
                         
                         <blockquote class="my-6">
                             Even in disappointment, you were still a safe place. Even in hurt, you didn’t let go. That night I felt something shift.
                         </blockquote>
                         
                         <p>A few nights later... we were simply dreaming. We imagined a small apartment with warm light, wooden floors, a dog, and a cat. Our home.</p>
-                        <p class="font-semibold text-white">This is a reminder of how even in frustration, you showed me grace. And in fear, you gave me hope. Thank you for loving me the way you do.</p>
+                        <p class="font-semibold" style="color: var(--text-warm-white);">This is a reminder of how even in frustration, you showed me grace. And in fear, you gave me hope. Thank you for loving me the way you do.</p>
                     </div>
                 </div>
             </div>
@@ -247,15 +241,15 @@
         <section id="section-3" class="min-h-screen py-20 px-4 flex items-center justify-center">
             <div class="max-w-2xl text-left reveal">
                 <h2 class="font-heading text-4xl md:text-5xl text-white mb-2 text-center">That Summer Night I Cried</h2>
-                <p class="text-center text-stone-300 mb-10">When "I miss you" became real.</p>
-                <div class="text-lg leading-relaxed space-y-6 text-stone-300">
+                <p class="text-center mb-10" style="color: var(--text-secondary);">When "I miss you" became real.</p>
+                <div class="text-lg leading-relaxed space-y-6" style="color: var(--text-secondary);">
                     <p>It finally happened. The kind of missing that claws at your chest until it spills out in tears. Summer class was one of the hardest, most exhausting times.</p>
                     <p>I was barely hanging on. I had no space to breathe. I missed you every day... but one night, I typed “I miss you” like I always did. Then I broke.</p>
-                    <p>I wanted you so badly in that moment, not just to talk to, but to hold me. To ground me. I didn’t want to be brave or strong. <span class="font-semibold text-white">I just wanted you.</span></p>
+                    <p>I wanted you so badly in that moment, not just to talk to, but to hold me. To ground me. I didn’t want to be brave or strong. <span class="font-semibold" style="color: var(--text-warm-white);">I just wanted you.</span></p>
 
                     <blockquote class="my-8 py-6 text-xl text-center">
                         I cried because I missed my home.<br>
-                        <span class="font-semibold" style="color: var(--accent-gold);">And that’s you.</span>
+                        <span class="font-semibold" style="color: var(--accent-muted-gold);">And that’s you.</span>
                     </blockquote>
                     
                     <p>And it hit me. This was what you’d felt. That deep, physical kind of missing. I’m late to it. But I get it now. And god, it hurts.</p>
@@ -276,13 +270,13 @@
         <section id="section-4" class="min-h-screen py-20 px-4 flex items-center justify-center">
             <div class="max-w-2xl text-center reveal">
                 <h2 class="font-heading text-4xl md:text-5xl text-white mb-8">Grace</h2>
-                <div class="text-lg leading-relaxed space-y-6 italic text-stone-300">
+                <div class="text-lg leading-relaxed space-y-6 italic" style="color: var(--text-secondary);">
                     <p>I woke up late... not knowing I’d left you in midair.</p>
                     <p>That night, I carried my apology with care.<br>But I asked, through a tender breath,<br>“Is this space safe enough to share?”</p>
                     <p>My breath in pieces, slow and rough.<br>But you stayed soft, you didn’t flinch<br>your gentleness was just enough.</p>
                     <p>You said, “I didn’t see it clear.”<br>And in that moment, grace arrived<br>not loud, just choosing me to stay.</p>
                     <p>Because you’re still that—don’t you see?<br>You’re still my home, my heart, my friend.</p>
-                    <p class="font-semibold not-italic text-white">Mistakes will come—but so will grace,<br>and I’ll keep giving mine to you.</p>
+                    <p class="font-semibold not-italic" style="color: var(--text-warm-white);">Mistakes will come—but so will grace,<br>and I’ll keep giving mine to you.</p>
                 </div>
             </div>
         </section>
@@ -295,15 +289,15 @@
         <footer class="w-full h-screen flex flex-col items-center justify-center text-center p-4">
             <div class="reveal">
                 <p class="font-heading text-3xl md:text-5xl title-glow">You'll always be my steady light,<br>my safest home, my quiet place.</p>
-                <p class="mt-8 text-2xl text-stone-200">I love you. Always.</p>
-                <p class="mt-2 text-xl text-stone-300">- Your Moon</p>
+                <p class="mt-8 text-2xl" style="color: var(--text-warm-white);">I love you. Always.</p>
+                <p class="mt-2 text-xl" style="color: var(--text-secondary);">- Your Moon</p>
             </div>
         </footer>
     </main>
 
     <!-- 
     ==========================================================================
-    JAVASCRIPT FOR SCROLL ANIMATIONS
+    JAVASCRIPT FOR SCROLL ANIMATIONS (Unchanged)
     ==========================================================================
     -->
     <script>
@@ -321,10 +315,7 @@
 
     <!-- 
     ==========================================================================
-    ADVANCED JAVASCRIPT FOR STARFIELD BACKGROUND
-    ==========================================================================
-    This script creates the dynamic, animated starfield. It's performant and
-    runs entirely in the background.
+    ADVANCED JAVASCRIPT FOR STARFIELD BACKGROUND (Refined for subtlety)
     ==========================================================================
     -->
     <script>
@@ -344,18 +335,18 @@
             constructor() {
                 this.x = a(0, canvas.width);
                 this.y = a(0, canvas.height);
-                this.radius = a(0.5, 1.5);
-                this.vx = a(-0.1, 0.1);
-                this.vy = a(0.2, 0.4); // Slow downward drift for parallax
+                this.radius = a(0.4, 1.2);
+                this.vx = a(-0.05, 0.05);
+                this.vy = a(0.1, 0.3); // Slower drift
                 this.alpha = a(0.3, 1);
-                this.twinkleSpeed = a(0.01, 0.03);
+                this.twinkleSpeed = a(0.005, 0.015); // Slower twinkle
                 this.twinklePhase = a(0, Math.PI * 2);
             }
 
             draw() {
                 ctx.beginPath();
                 ctx.arc(this.x, this.y, this.radius, 0, Math.PI * 2);
-                ctx.fillStyle = `rgba(255, 227, 179, ${this.alpha})`; // Warm gold color
+                ctx.fillStyle = `rgba(234, 224, 213, ${this.alpha})`; // Use the warm white for stars
                 ctx.fill();
             }
 
@@ -363,11 +354,9 @@
                 this.x += this.vx;
                 this.y += this.vy;
                 
-                // Twinkle effect
-                this.alpha = 0.5 + 0.5 * Math.sin(this.twinklePhase);
+                this.alpha = 0.4 + 0.6 * Math.sin(this.twinklePhase);
                 this.twinklePhase += this.twinkleSpeed;
 
-                // Reset star if it goes off screen
                 if (this.y > canvas.height + this.radius) {
                     this.y = -this.radius;
                     this.x = a(0, canvas.width);
@@ -379,46 +368,46 @@
         
         class ShootingStar {
             constructor() {
-                this.reset();
+                this.active = false;
             }
 
             reset() {
-                this.x = a(0, canvas.width);
-                this.y = a(-100, 0);
-                this.len = a(100, 200);
-                this.speed = a(8, 15);
+                this.x = a(canvas.width * 0.2, canvas.width * 0.8);
+                this.y = a(0, canvas.height * 0.2);
+                this.len = a(80, 150);
+                this.speed = a(7, 12); // Slower shooting star
                 this.alpha = 1;
                 this.active = true;
             }
 
             draw() {
                 if (!this.active) return;
-                const gradient = ctx.createLinearGradient(this.x, this.y, this.x, this.y - this.len);
-                gradient.addColorStop(0, `rgba(255, 211, 105, ${this.alpha})`);
-                gradient.addColorStop(1, `rgba(255, 211, 105, 0)`);
+                const gradient = ctx.createLinearGradient(this.x, this.y, this.x + 2, this.y - this.len);
+                gradient.addColorStop(0, `rgba(169, 140, 106, ${this.alpha})`);
+                gradient.addColorStop(1, `rgba(169, 140, 106, 0)`);
                 ctx.beginPath();
                 ctx.moveTo(this.x, this.y);
-                ctx.lineTo(this.x, this.y - this.len);
+                ctx.lineTo(this.x + 2, this.y - this.len);
                 ctx.strokeStyle = gradient;
-                ctx.lineWidth = 1.5;
+                ctx.lineWidth = 1.2;
                 ctx.stroke();
             }
 
             update() {
                 if (!this.active) return;
                 this.y += this.speed;
+                this.x -= this.speed * 0.1;
                 if (this.y - this.len > canvas.height) {
                     this.active = false;
                 }
             }
         }
 
-        const numStars = window.innerWidth / 4;
+        const numStars = Math.floor(window.innerWidth / 5);
         const stars = Array.from({ length: numStars }, () => new Star());
         let shootingStar = new ShootingStar();
 
         function animate() {
-            // Clear canvas with a trail effect
             ctx.fillStyle = 'rgba(15, 16, 28, 0.2)';
             ctx.fillRect(0, 0, canvas.width, canvas.height);
 
@@ -430,8 +419,8 @@
             shootingStar.update();
             shootingStar.draw();
             
-            // Randomly create a new shooting star
-            if (!shootingStar.active && Math.random() < 0.002) {
+            // Rarer shooting stars
+            if (!shootingStar.active && Math.random() < 0.001) {
                 shootingStar.reset();
             }
 
