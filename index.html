@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>For My Moon</title>
+    <title>For My Star</title>
     
     <!-- Tailwind CSS via CDN -->
     <script src="https://cdn.tailwindcss.com"></script>
@@ -18,26 +18,35 @@
         ==========================================================================
         SUPERB & ADVANCED CSS SECTION
         ==========================================================================
-        Here, we'll define the core aesthetic of the site. Instead of just
-        using default Tailwind colors, we define a custom, rich theme using 
-        CSS Variables. This makes the design cohesive and easy to tweak.
-        We also add custom classes for animations and typography that go beyond
-        standard utilities.
+        NEW AESTHETIC: "A LATE NIGHT TALK"
+        The theme is now built around a deep, twilight-sky gradient. The accents
+        are warm sunset oranges and soft golds, evoking the feeling of a heartfelt
+        conversation happening as day turns to night.
         ==========================================================================
         */
 
         :root {
-            --bg-dark: #121212; /* A deep, near-black for intimacy */
-            --bg-surface: #1e1e1e; /* A slightly lighter surface for content blocks */
-            --text-primary: rgba(255, 255, 255, 0.85); /* Not pure white, softer on the eyes */
-            --text-secondary: rgba(255, 255, 255, 0.6);
-            --accent-gold: #D4AF37; /* A warm, elegant gold for highlights */
-            --accent-glow: rgba(212, 175, 55, 0.15); /* A subtle glow for hover effects */
+            /* Twilight Sky Palette */
+            --bg-dark-start: #1a2035; /* Deep indigo/purple */
+            --bg-dark-end: #0f101c; /* Near-black with a hint of blue */
+            --bg-surface: #1e1f2b; /* A slightly lighter, muted surface for cards */
+
+            /* Text & Accents */
+            --text-primary: rgba(239, 239, 245, 0.9); /* A softer, warmer white */
+            --text-secondary: rgba(239, 239, 245, 0.65);
+            
+            --accent-orange: #FF8C42; /* A vibrant, warm sunset orange */
+            --accent-gold: #FFD369; /* A softer, warmer gold for highlights */
+            
+            /* Glows that mimic warm light */
+            --accent-orange-glow: rgba(255, 140, 66, 0.2);
+            --accent-gold-glow: rgba(255, 211, 105, 0.25);
         }
 
         /* Applying the theme */
         body {
-            background-color: var(--bg-dark);
+            background-color: var(--bg-dark-end); /* Fallback color */
+            background-image: linear-gradient(to bottom, var(--bg-dark-start), var(--bg-dark-end));
             color: var(--text-primary);
             font-family: 'Inter', sans-serif;
             -webkit-font-smoothing: antialiased;
@@ -49,40 +58,41 @@
             font-family: 'Playfair Display', serif;
         }
 
-        /* Advanced Heading Styling with a subtle glow */
+        /* Advanced Heading Styling with a warm, sunset-like glow */
         .title-glow {
-            text-shadow: 0 0 15px var(--accent-glow), 0 0 25px var(--accent-glow);
+            text-shadow: 0 0 15px var(--accent-orange-glow), 0 0 30px var(--accent-orange-glow);
         }
 
-        /* Custom styling for blockquotes to make them feel like highlighted thoughts */
+        /* Custom styling for blockquotes - a highlighted, intimate thought */
         blockquote {
-            border-left: 3px solid var(--accent-gold);
-            background: linear-gradient(to right, var(--accent-glow), transparent);
+            border-left: 3px solid var(--accent-orange);
+            background: linear-gradient(to right, rgba(255, 140, 66, 0.05), transparent);
             color: var(--text-primary);
             font-style: italic;
             font-weight: 400;
             letter-spacing: 0.5px;
         }
         
-        /* The main button style with advanced transitions */
+        /* The main button style, now with the warm sunset color */
         .btn-primary {
             display: inline-block;
             padding: 12px 28px;
             font-weight: 500;
             letter-spacing: 1px;
-            color: var(--bg-dark);
+            color: var(--bg-dark-end);
             background-color: var(--accent-gold);
             border-radius: 50px;
             text-transform: uppercase;
             text-decoration: none;
             transition: transform 0.3s cubic-bezier(0.25, 0.8, 0.25, 1), 
                         box-shadow 0.3s cubic-bezier(0.25, 0.8, 0.25, 1);
-            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3);
         }
 
         .btn-primary:hover {
             transform: translateY(-4px);
-            box-shadow: 0 10px 25px var(--accent-glow);
+            box-shadow: 0 10px 25px var(--accent-gold-glow);
+            background-color: var(--accent-orange); /* Shifts to a richer color on hover */
         }
         
         /* Styling for the subtle horizontal rule divider */
@@ -91,23 +101,19 @@
             width: 150px;
             margin: 4rem auto;
             background: linear-gradient(to right, transparent, var(--accent-gold), transparent);
-            opacity: 0.5;
+            opacity: 0.6;
         }
         
         /* 
         ==========================================================================
-        Scroll-Triggered Animation Classes
-        ==========================================================================
-        This is a key part of the "advanced" feel. Elements will be invisible
-        and slightly shifted until they enter the viewport. JavaScript will then
-        add the 'is-visible' class to trigger a smooth fade-in-up animation.
+        Scroll-Triggered Animation Classes (Unchanged - Logic is perfect)
         ==========================================================================
         */
         .reveal {
             opacity: 0;
             transform: translateY(30px);
             transition: opacity 1s ease-out, transform 1.2s cubic-bezier(0.165, 0.84, 0.44, 1);
-            transition-delay: 0.2s; /* a slight delay for better pacing */
+            transition-delay: 0.2s;
         }
         
         .reveal.is-visible {
@@ -122,17 +128,16 @@
     <!-- 
     ==========================================================================
     HERO SECTION
-    A grand, emotional opening to set the tone.
     ==========================================================================
     -->
     <header class="h-screen w-full flex flex-col justify-center items-center text-center p-4">
-        <div class="max-w-3xl reveal is-visible"> <!-- Start first element visible -->
-            <h1 class="font-heading text-6xl md:text-8xl font-semibold text-white title-glow">For My Moon</h1>
+        <div class="max-w-3xl reveal is-visible">
+            <h1 class="font-heading text-6xl md:text-8xl font-semibold text-white title-glow">For My Star</h1>
             <p class="mt-6 text-lg md:text-xl text-stone-300">
-                A collection of moments and feelings I've held in my chest.
-                <br>This is for you.
+                A collection of late-night thoughts and feelings I've held onto.
+                <br>This is all for you.
             </p>
-            <a href="#section-1" class="btn-primary mt-12">Begin the journey</a>
+            <a href="#section-1" class="btn-primary mt-12">Begin our story</a>
         </div>
         <div class="absolute bottom-10 animate-bounce">
             <svg class="w-6 h-6 text-stone-400" fill="none" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" viewBox="0 0 24 24" stroke="currentColor">
@@ -146,18 +151,17 @@
         <!-- 
         ==========================================================================
         SECTION 1: The Scent You Leave Behind
-        This section is light and tender, presented like a classic poem.
         ==========================================================================
         -->
         <section id="section-1" class="min-h-screen py-20 px-4 flex items-center justify-center">
             <div class="max-w-2xl text-center reveal">
                 <h2 class="font-heading text-4xl md:text-5xl text-white mb-8">The Scent You Leave Behind</h2>
-                <div class="text-lg text-stone-300 leading-relaxed space-y-6">
+                <div class="text-lg leading-relaxed space-y-6" style="color: var(--text-secondary);">
                     <p>Your scent still clings to my shirt, so light—<br>a quiet echo of our day,<br>the warmth of arms wrapped soft and tight,<br>refusing now to fade away.</p>
                     <p>I press the cloth against my face,<br>and there you are, though not in sight—<br>the comfort of your quiet grace,<br>a hug that lingers through the night.</p>
                     <p>It smells like laughter, sun, and skin,<br>like whispered jokes and holding close,<br>like everything I tuck within<br>when parting feels like letting go.</p>
                     <p>Some scents are fleeting, sharp, and gone—<br>but yours, like home, decides to stay.<br>And in that trace, I carry on,<br>wrapped in your love, though far away.</p>
-                    <p>So every time I breathe you in,<br>I smile, because I know it's true:<br>this little world upon my skin<br>means I spent the whole day with you.</p>
+                    <p class="font-medium" style="color: var(--text-primary);">So every time I breathe you in,<br>I smile, because I know it's true:<br>this little world upon my skin<br>means I spent the whole day with you.</p>
                 </div>
             </div>
         </section>
@@ -167,30 +171,27 @@
         <!-- 
         ==========================================================================
         SECTION 2: Worry, thus Warmth
-        A more complex layout for a deeper journal entry. We use a two-column
-        approach on larger screens to present the title and the text separately,
-        giving it more weight and readability.
         ==========================================================================
         -->
         <section id="section-2" class="container mx-auto py-20 px-6 lg:px-8">
-            <div class="reveal max-w-5xl mx-auto rounded-lg p-8 md:p-12" style="background-color: var(--bg-surface);">
+            <div class="reveal max-w-5xl mx-auto rounded-lg p-8 md:p-12 shadow-2xl" style="background-color: var(--bg-surface);">
                 <div class="grid grid-cols-1 md:grid-cols-3 gap-8 md:gap-12">
                     <div class="md:col-span-1">
                         <h2 class="font-heading text-4xl md:text-5xl text-white leading-tight">Worry, thus Warmth</h2>
-                        <p class="mt-4 text-stone-400">A realization that changed everything.</p>
+                        <p class="mt-4" style="color: var(--text-secondary);">A realization that changed everything.</p>
                     </div>
-                    <div class="md:col-span-2 text-base md:text-lg text-stone-300 leading-relaxed space-y-6">
-                        <p>I’ve been holding this in my chest for a while now, waiting for the right moment to write it down because what happened that day meant more to me than I think you realized.</p>
-                        <p>It was our first real fight...well not really? moreso a small disagreement. I hated knowing I made you feel like I didn’t care when really, I care so much it aches sometimes. And when we talked, I felt it - that tightness in your voice. The way you were trying to be calm, trying not to snap, but still hurting.</p>
-                        <p>So I cried. Not because you yelled. You didn’t. I cried because you didn’t become someone else in your frustration. Because you stayed you.</p>
+                    <div class="md:col-span-2 text-base md:text-lg leading-relaxed space-y-6" style="color: var(--text-secondary);">
+                        <p>I’ve been holding this in my chest for a while now... because what happened that day meant more to me than I think you realized.</p>
+                        <p>It was our first real fight... a small disagreement. I hated knowing I made you feel like I didn’t care when really, I care so much it aches sometimes. And when we talked, I felt it - that tightness in your voice.</p>
+                        <p>So I cried. Not because you yelled. You didn’t. I cried because you didn’t become someone else in your frustration. <span class="font-medium" style="color: var(--text-primary);">Because you stayed you.</span></p>
                         
                         <blockquote class="my-6 p-4">
                             Even in disappointment, you were still a safe place. Even in hurt, you didn’t let go. That night I felt something shift.
                         </blockquote>
                         
-                        <p>A few nights later, we found ourselves side by side again... We were simply dreaming. You asked me what I pictured for our future, and the answers came so naturally it surprised me. A small apartment with warm light, wooden floors, your half-full mug, my paints, a dog, and a cat. Our home.</p>
+                        <p>A few nights later... we were simply dreaming. You asked me what I pictured for our future... A small apartment with warm light, wooden floors, your half-full mug, my paints, a dog, and a cat. Our home.</p>
                         <p>We were honest. We were both scared. But through that worry, we stayed with the vision. Because we know it’s not just the destination that matters, but who we’re walking with.</p>
-                        <p class="font-semibold text-white">So this is what I wanted to keep. A reminder of how even in frustration, you showed me grace. And in fear, you gave me hope. Thank you for loving me the way you do.</p>
+                        <p class="font-semibold" style="color: var(--text-primary);">This is a reminder of how even in frustration, you showed me grace. And in fear, you gave me hope. Thank you for loving me the way you do.</p>
                     </div>
                 </div>
             </div>
@@ -201,26 +202,23 @@
         <!-- 
         ==========================================================================
         SECTION 3: That Summer Night I Cried
-        This section has a tighter focus. The text column is narrower to
-        create a feeling of intimacy and being "closed in", reflecting the
-        text's content.
         ==========================================================================
         -->
         <section id="section-3" class="min-h-screen py-20 px-4 flex items-center justify-center">
             <div class="max-w-2xl text-left reveal">
                 <h2 class="font-heading text-4xl md:text-5xl text-white mb-2 text-center">That Summer Night I Cried</h2>
-                <p class="text-center text-stone-400 mb-10">When "I miss you" became real.</p>
-                <div class="text-lg text-stone-300 leading-relaxed space-y-6">
-                    <p>It finally happened. The kind of missing that doesn’t just sit quietly... but claws at your chest until it spills out in tears. Summer class was supposed to be just three weeks. It ended up being some of the hardest, most exhausting days.</p>
+                <p class="text-center mb-10" style="color: var(--text-secondary);">When "I miss you" became real.</p>
+                <div class="text-lg leading-relaxed space-y-6" style="color: var(--text-secondary);">
+                    <p>It finally happened. The kind of missing that doesn’t just sit quietly... but claws at your chest until it spills out in tears. Summer class was exhausting.</p>
                     <p>I was barely hanging on. My anxiety was through the roof. Home wasn’t even home anymore. I had no space to breathe. I missed you every day... but one night, it wasn’t just a message. I typed “I miss you” like I always did. Then I broke.</p>
-                    <p>Tears started coming and they didn’t stop. I wanted you so badly in that moment, not just to talk to, but to hold me. To ground me. I didn’t want to be brave or okay or strong. I just wanted you.</p>
+                    <p>Tears started coming and they didn’t stop. I wanted you so badly in that moment, not just to talk to, but to hold me. To ground me. I didn’t want to be brave or okay or strong. <span class="font-medium" style="color: var(--text-primary);">I just wanted you.</span></p>
 
                     <blockquote class="my-8 p-6 text-xl text-center">
                         I cried because I missed my home.<br>
-                        <span class="font-semibold text-white">And that’s you.</span>
+                        <span class="font-semibold" style="color: var(--accent-gold);">And that’s you.</span>
                     </blockquote>
                     
-                    <p>And it hit me. This was what you’d felt, maybe more than once. That deep, physical kind of missing—the kind that fills your throat, blurs your vision, and leaves your heart sore. I’m late to it. But I get it now. And god, it hurts.</p>
+                    <p>And it hit me. This was what you’d felt... That deep, physical kind of missing. I’m late to it. But I get it now. And god, it hurts.</p>
                     <p>I’ll keep holding on until I’m back in your arms.</p>
                 </div>
             </div>
@@ -231,20 +229,18 @@
         <!-- 
         ==========================================================================
         SECTION 4: Grace
-        Another poetic entry. The layout returns to a centered, open format,
-        symbolizing the resolution and open communication in the poem.
         ==========================================================================
         -->
         <section id="section-4" class="min-h-screen py-20 px-4 flex items-center justify-center">
             <div class="max-w-2xl text-center reveal">
                 <h2 class="font-heading text-4xl md:text-5xl text-white mb-8">Grace</h2>
-                <div class="text-lg text-stone-300 leading-relaxed space-y-6 italic">
-                    <p>I woke up late, the sun already down,<br>your message waiting, quietly there.<br>But I moved first, stretched, exhaled<br>not knowing I’d left you in midair.</p>
-                    <p>That night, beneath a quiet sky,<br>I carried my apology with care.<br>But I asked, through a tender breath,<br>“Is this space safe enough to share?”</p>
+                <div class="text-lg leading-relaxed space-y-6 italic" style="color: var(--text-secondary);">
+                    <p>I woke up late, the sun already down,<br>your message waiting, quietly there.<br>But I moved first... not knowing I’d left you in midair.</p>
+                    <p>That night, I carried my apology with care.<br>But I asked, through a tender breath,<br>“Is this space safe enough to share?”</p>
                     <p>Sniffles broke my every line,<br>my breath in pieces, slow and rough.<br>But you stayed soft, you didn’t flinch<br>your gentleness was just enough.</p>
                     <p>You said, “I didn’t see it clear.<br>I didn’t know you felt that way.”<br>And in that moment, grace arrived<br>not loud, just choosing me to stay.</p>
                     <p>Because you’re still that—don’t you see?<br>You’re still my home, my heart, my friend.<br>And loving you through growing pains<br>is something I will never end.</p>
-                    <p class="font-semibold not-italic text-white">Mistakes will come—but so will grace,<br>and I’ll keep giving mine to you.</p>
+                    <p class="font-semibold not-italic" style="color: var(--text-primary);">Mistakes will come—but so will grace,<br>and I’ll keep giving mine to you.</p>
                 </div>
             </div>
         </section>
@@ -252,26 +248,20 @@
         <!-- 
         ==========================================================================
         FOOTER / CONCLUSION
-        A final, powerful message to close the journey.
         ==========================================================================
         -->
         <footer class="w-full py-24 text-center">
             <div class="reveal">
                 <p class="font-heading text-3xl md:text-5xl text-white title-glow">You'll always be my steady light,<br>my safest home, my quiet place.</p>
-                <p class="mt-8 text-2xl text-stone-300">I love you. Always.</p>
-                <p class="mt-2 text-xl text-stone-400">- Moon</p>
+                <p class="mt-8 text-2xl" style="color: var(--text-primary);">I love you. Always.</p>
+                <p class="mt-2 text-xl" style="color: var(--text-secondary);">- Your Moon</p>
             </div>
         </footer>
     </main>
 
     <!-- 
     ==========================================================================
-    JAVASCRIPT FOR ANIMATIONS
-    ==========================================================================
-    This small script uses the Intersection Observer API. It's a modern and
-    highly performant way to detect when an element enters the screen.
-    When it "observes" a `.reveal` element, it adds the `.is-visible` class,
-    which triggers our CSS transition.
+    JAVASCRIPT FOR ANIMATIONS (Unchanged)
     ==========================================================================
     -->
     <script>
@@ -279,15 +269,13 @@
 
         const observer = new IntersectionObserver((entries, observer) => {
             entries.forEach(entry => {
-                // If the element is in the viewport
                 if (entry.isIntersecting) {
                     entry.target.classList.add("is-visible");
-                    // Optional: stop observing the element after it's visible so it doesn't animate again
                     observer.unobserve(entry.target);
                 }
             });
         }, {
-            threshold: 0.1 // Trigger when 10% of the element is visible
+            threshold: 0.1
         });
 
         revealElements.forEach(element => {
