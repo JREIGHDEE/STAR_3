@@ -16,12 +16,11 @@
     <style>
         /* 
         ==========================================================================
-        SUPERB & ADVANCED CSS SECTION V4
+        SUPERB & ADVANCED CSS SECTION V4.1 (FINAL)
         ==========================================================================
         AESTHETIC: "A QUIET, CONTEMPLATIVE UNIVERSE"
-        This version embraces a more somber and subtle tone. The color palette is
-        muted, glows are softened, and the starfield animation is calmer, creating
-        a deeply loving yet understated atmosphere.
+        This is the final version, featuring the somber and subtle design with the
+        complete, unabridged texts as requested.
         ==========================================================================
         */
 
@@ -29,17 +28,12 @@
             /* Muted, Somber Palette */
             --bg-dark-start: #1a2035;
             --bg-dark-end: #0f101c;
-            --text-warm-white: #EAE0D5; /* A soft, warm off-white for primary text */
+            --text-warm-white: #EAE0D5;
             --text-secondary: rgba(234, 224, 213, 0.65);
-            --accent-muted-gold: #A98C6A; /* A muted, heirloom gold for accents */
+            --accent-muted-gold: #A98C6A;
             --accent-muted-glow: rgba(169, 140, 106, 0.3);
         }
 
-        /* 
-        ========================================
-        Dynamic Starfield Background
-        ========================================
-        */
         body {
             background-color: var(--bg-dark-end);
             background-image: linear-gradient(to bottom, var(--bg-dark-start), var(--bg-dark-end));
@@ -58,22 +52,15 @@
             z-index: -1;
         }
         
-        /* Custom font classes */
         .font-heading {
             font-family: 'Playfair Display', serif;
         }
 
-        /* Softer, more ethereal title glow */
         .title-glow {
             color: white;
             text-shadow: 0 0 20px rgba(234, 224, 213, 0.4);
         }
 
-        /* 
-        ========================================
-        Glassmorphism UI Card
-        ========================================
-        */
         .glass-card {
             background-color: rgba(26, 32, 53, 0.25);
             backdrop-filter: blur(12px) saturate(120%);
@@ -91,7 +78,6 @@
             font-weight: 400;
         }
         
-        /* Understated button with the muted gold palette */
         .btn-primary {
             display: inline-block;
             padding: 12px 28px;
@@ -113,7 +99,6 @@
             background-color: var(--text-warm-white);
         }
         
-        /* Symbolic Divider with the new accent color */
         .symbol-divider {
             display: flex;
             align-items: center;
@@ -126,16 +111,15 @@
         .symbol-divider svg {
             width: 24px;
             height: 24px;
-            opacity: 0.6; /* More subtle */
+            opacity: 0.6;
             transition: opacity 0.3s, transform 0.3s;
         }
 
         .symbol-divider:hover svg {
             opacity: 1;
-            transform: scale(1.1); /* Removed rotation for a calmer effect */
+            transform: scale(1.1);
         }
 
-        /* Scroll-Triggered Animation (Unchanged) */
         .reveal {
             opacity: 0;
             transform: translateY(40px);
@@ -152,14 +136,8 @@
 </head>
 <body class="overflow-x-hidden">
 
-    <!-- The Animated Starfield Canvas -->
     <canvas id="starfield"></canvas>
 
-    <!-- 
-    ==========================================================================
-    HERO SECTION
-    ==========================================================================
-    -->
     <header class="h-screen w-full flex flex-col justify-center items-center text-center p-4 relative z-10">
         <div class="max-w-3xl reveal is-visible">
             <h1 class="font-heading text-6xl md:text-8xl font-semibold title-glow">For My Star</h1>
@@ -178,11 +156,6 @@
 
     <main class="w-full relative z-10">
     
-        <!-- 
-        ==========================================================================
-        SECTION 1: The Scent You Leave Behind
-        ==========================================================================
-        -->
         <section id="section-1" class="min-h-screen py-20 px-4 flex items-center justify-center">
             <div class="max-w-2xl text-center reveal">
                 <h2 class="font-heading text-4xl md:text-5xl text-white mb-8">The Scent You Leave Behind</h2>
@@ -190,6 +163,7 @@
                     <p>Your scent still clings to my shirt, so light—<br>a quiet echo of our day,<br>the warmth of arms wrapped soft and tight,<br>refusing now to fade away.</p>
                     <p>I press the cloth against my face,<br>and there you are, though not in sight—<br>the comfort of your quiet grace,<br>a hug that lingers through the night.</p>
                     <p>It smells like laughter, sun, and skin,<br>like whispered jokes and holding close,<br>like everything I tuck within<br>when parting feels like letting go.</p>
+                    <p>Some scents are fleeting, sharp, and gone—<br>but yours, like home, decides to stay.<br>And in that trace, I carry on,<br>wrapped in your love, though far away.</p>
                     <p class="font-semibold" style="color: var(--text-warm-white);">So every time I breathe you in,<br>I smile, because I know it's true:<br>this little world upon my skin<br>means I spent the whole day with you.</p>
                 </div>
             </div>
@@ -200,29 +174,31 @@
             <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor"><path fill-rule="evenodd" d="M9.528 1.718a.75.75 0 01.162.819A8.97 8.97 0 009 6a9 9 0 009 9 8.97 8.97 0 003.463-.69.75.75 0 01.981.98 10.503 10.503 0 01-9.694 6.46c-5.799 0-10.5-4.701-10.5-10.5 0-3.51 1.713-6.635 4.398-8.552a.75.75 0 01.818.162z" clip-rule="evenodd"></path></svg>
         </div>
 
-        <!-- 
-        ==========================================================================
-        SECTION 2: Worry, thus Warmth (with Glassmorphism)
-        ==========================================================================
-        -->
         <section id="section-2" class="container mx-auto py-20 px-6 lg:px-8">
             <div class="reveal max-w-5xl mx-auto p-8 md:p-12 glass-card">
                 <div class="grid grid-cols-1 md:grid-cols-3 gap-8 md:gap-12">
                     <div class="md:col-span-1">
                         <h2 class="font-heading text-4xl md:text-5xl text-white leading-tight">Worry, thus Warmth</h2>
-                        <p class="mt-4" style="color: var(--text-secondary);">A realization that changed everything.</p>
                     </div>
                     <div class="md:col-span-2 text-base md:text-lg leading-relaxed space-y-6" style="color: var(--text-secondary);">
-                        <p>I’ve been holding this in my chest... because what happened that day meant more to me than I think you realized.</p>
-                        <p>It was our first real fight... a small disagreement. I hated knowing I made you feel like I didn’t care when really, I care so much it aches sometimes.</p>
-                        <p>So I cried. Not because you yelled. You didn’t. I cried because you didn’t become someone else in your frustration. <span class="font-semibold" style="color: var(--text-warm-white);">Because you stayed you.</span></p>
-                        
+                        <p>I’ve been holding this in my chest for a while now, waiting for the right moment to write it down because what happened that day meant more to me than I think you realized.</p>
+                        <p>It was our first real fight...well not really? moreso a small disagreement.</p>
+                        <p>And I know it was small, just a matter of me sleeping in longer than I should have. You were waiting, probably already thinking of what we’d do, hoping I’d reply the moment you messaged. But I didn’t. You watched the minutes stretch too long, maybe feeling let down. Frustrated. Unseen.</p>
+                        <p>When I finally woke up and saw your messages, guilt hit me like a wave. I hated knowing I made you feel like I didn’t care when really, I care so much it aches sometimes. And when we talked, I felt it -that tightness in your voice. The way you were trying to be calm, trying not to snap, but still hurting.</p>
+                        <p>So I cried.<br>Not because you yelled. You didn’t.<br>Not because you punished me. You didn’t.<br>I cried because you didn’t become someone else in your frustration.<br>Because you stayed you.</p>
+                        <p>You didn’t turn cold. You didn’t mock me or twist the knife with silence. You didn’t make me beg to be forgiven. You listened. You let me speak. You stayed with me in the quiet after the apology, and instead of pushing me away, you laid me down beside you with this quiet tenderness that made my heart break and heal all at once.</p>
+                        <p>It was such a gentle kind of love. One I’m still learning to trust.<br>Because with Paul, this would’ve gone differently.<br>He would’ve made me work for forgiveness. He would’ve worn silence like armor and made me peel it off piece by painful piece. There would’ve been jabs disguised as jokes. Cold shoulders. Words meant to make me regret what I did, more than I already did.<br>But you…</p>
                         <blockquote class="my-6">
-                            Even in disappointment, you were still a safe place. Even in hurt, you didn’t let go. That night I felt something shift.
+                            Even in disappointment, you were still a safe place.<br>Even in hurt, you didn’t let go.<br>That night I felt something shift.
                         </blockquote>
-                        
-                        <p>A few nights later... we were simply dreaming. We imagined a small apartment with warm light, wooden floors, a dog, and a cat. Our home.</p>
-                        <p class="font-semibold" style="color: var(--text-warm-white);">This is a reminder of how even in frustration, you showed me grace. And in fear, you gave me hope. Thank you for loving me the way you do.</p>
+                        <p>I realized that being loved by you is not just a feeling, it’s a choice you keep making, even when it’s hard.</p>
+                        <p>A few nights later, we found ourselves side by side again, but this time the air was quieter. Softer. We were past the tears. We were simply dreaming. You asked me what I pictured for our future, and the answers came so naturally it surprised me. We imagined a small apartment filled with warm light and quiet rituals. Wooden floors. Your mug always left half-full on the counter. My paints in the corner. A golden retriever stretched out at our feet and a cat perched wherever it pleases. Our home.</p>
+                        <p>But we were honest. We were both scared. We talked about how hard it might be to get there. How long it might take. How some days the world feels too heavy, too uncertain.</p>
+                        <p>Still, through that worry, we stayed with the vision. Not because we were pretending it would be easy, but because we both believe in the same life. Because we know it’s not just the destination that matters, but who we’re walking with.</p>
+                        <p>Even with all the unknowns, the idea of building something with you feels like a blessing. A quiet promise. We won’t have everything right away. But we’ll have each other. That makes every fear feel softer, every step more bearable.</p>
+                        <p>So this is what I wanted to write down and keep. A reminder of how even in frustration, you showed me grace. And in fear, you gave me hope.<br>Thank you for loving me the way you do.</p>
+                        <p>Thank you for dreaming with me, even when we’re scared.<br>And thank you for staying soft, even when things feel heavy.</p>
+                        <p class="font-semibold" style="color: var(--text-warm-white);">I love you.<br>Always.<br>Moon</p>
                     </div>
                 </div>
             </div>
@@ -233,26 +209,30 @@
             <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor"><path fill-rule="evenodd" d="M9.528 1.718a.75.75 0 01.162.819A8.97 8.97 0 009 6a9 9 0 009 9 8.97 8.97 0 003.463-.69.75.75 0 01.981.98 10.503 10.503 0 01-9.694 6.46c-5.799 0-10.5-4.701-10.5-10.5 0-3.51 1.713-6.635 4.398-8.552a.75.75 0 01.818.162z" clip-rule="evenodd"></path></svg>
         </div>
 
-        <!-- 
-        ==========================================================================
-        SECTION 3: That Summer Night I Cried
-        ==========================================================================
-        -->
-        <section id="section-3" class="min-h-screen py-20 px-4 flex items-center justify-center">
-            <div class="max-w-2xl text-left reveal">
-                <h2 class="font-heading text-4xl md:text-5xl text-white mb-2 text-center">That Summer Night I Cried</h2>
-                <p class="text-center mb-10" style="color: var(--text-secondary);">When "I miss you" became real.</p>
-                <div class="text-lg leading-relaxed space-y-6" style="color: var(--text-secondary);">
-                    <p>It finally happened. The kind of missing that claws at your chest until it spills out in tears. Summer class was one of the hardest, most exhausting times.</p>
-                    <p>I was barely hanging on. I had no space to breathe. I missed you every day... but one night, I typed “I miss you” like I always did. Then I broke.</p>
-                    <p>I wanted you so badly in that moment, not just to talk to, but to hold me. To ground me. I didn’t want to be brave or strong. <span class="font-semibold" style="color: var(--text-warm-white);">I just wanted you.</span></p>
-
-                    <blockquote class="my-8 py-6 text-xl text-center">
-                        I cried because I missed my home.<br>
-                        <span class="font-semibold" style="color: var(--accent-muted-gold);">And that’s you.</span>
-                    </blockquote>
-                    
-                    <p>And it hit me. This was what you’d felt. That deep, physical kind of missing. I’m late to it. But I get it now. And god, it hurts.</p>
+        <section id="section-3" class="container mx-auto py-20 px-6 lg:px-8">
+            <div class="reveal max-w-5xl mx-auto p-8 md:p-12 glass-card">
+                 <div class="grid grid-cols-1 md:grid-cols-3 gap-8 md:gap-12">
+                    <div class="md:col-span-1">
+                        <h2 class="font-heading text-4xl md:text-5xl text-white leading-tight">That Summer Night I Cried</h2>
+                    </div>
+                    <div class="md:col-span-2 text-base md:text-lg leading-relaxed space-y-6" style="color: var(--text-secondary);">
+                        <p>It finally happened.<br>The kind of missing that doesn’t just sit quietly in the back of your mind but claws at your chest until it spills out in tears.</p>
+                        <p>I think I understand now—what you meant on the nights you said you missed me so badly it ached. Back then, I loved you, but I hadn’t felt it like that yet. Not in the full, overwhelming, body-heavy way. But this summer gave me no choice. It caught up with me.</p>
+                        <p>Summer class at ADDU was supposed to be just three weeks. It felt short when I first heard it. Just something to get through. But it ended up being some of the hardest, most exhausting days I’ve had in a long time.</p>
+                        <p>I was barely hanging on during the first week. My anxiety was through the roof. I was tired, overstimulated, deprived. Quizzes I thought I prepared for came back with failing marks. And just when I’d usually want to crash into your arms after a long day, I couldn’t.</p>
+                        <p>Home wasn’t even home anymore.<br>Relatives came to stay, and everything felt like it was closing in. My room was loud and messy. I had no space to breathe, let alone study or rest. Saturdays, the day we always saved for each other, slipped through our fingers because I couldn’t get away.</p>
+                        <p>I missed you every day. I kept texting you that I did, like it was just another thing to say, even though I meant it. But one night, it wasn’t just a message.</p>
+                        <p>I typed “I miss you” like I always did.<br>Then I broke.</p>
+                        <p>Tears started coming and they didn’t stop. Quiet ones at first, then harder. I wanted you so badly in that moment, not just to talk to, but to hold me. To ground me. To remind me that I wasn’t drowning in all this stress alone. I didn’t want to be brave or okay or strong. I just wanted you.</p>
+                        <p>I needed to feel your arms around me. Your calm breathing. That wordless kind of comfort you give, where you don’t need to fix anything—you just are, and that’s enough.</p>
+                        <p>And it hit me.<br>This was what you’d felt, maybe more than once.<br>That deep, physical kind of missing—the kind that fills your throat, blurs your vision, and leaves your heart sore.</p>
+                        <p>I’m late to it.<br>But I get it now.<br>And god, it hurts.</p>
+                        <p>I’ve never wanted anything as badly as I wanted to be with you that night. To be held. To feel peace again, even just for a moment. Everything felt so far, so loud, and all I wanted was you.</p>
+                        <blockquote class="my-6 text-xl">
+                           I cried because I missed my home.<br>And that’s you.
+                        </blockquote>
+                        <p class="font-semibold" style="color: var(--text-warm-white);">I love you.<br>I’ll keep holding on until I’m back in your arms.<br>Me.</p>
+                    </div>
                 </div>
             </div>
         </section>
@@ -261,31 +241,30 @@
              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2.25a.75.75 0 01.75.75v2.25a.75.75 0 01-1.5 0V3a.75.75 0 01.75-.75zM7.5 12a4.5 4.5 0 119 0 4.5 4.5 0 01-9 0zM18.894 6.166a.75.75 0 00-1.06-1.06l-1.591 1.59a.75.75 0 101.06 1.061l1.591-1.59zM21.75 12a.75.75 0 01-.75.75h-2.25a.75.75 0 010-1.5H21a.75.75 0 01.75.75zM17.834 18.894a.75.75 0 001.06-1.06l-1.59-1.591a.75.75 0 10-1.061 1.06l1.59 1.591zM12 18a.75.75 0 01.75.75v2.25a.75.75 0 01-1.5 0V18.75a.75.75 0 01.75-.75zM5.106 17.834a.75.75 0 001.06 1.06l1.591-1.59a.75.75 0 00-1.06-1.061l-1.591 1.59zM3 12a.75.75 0 01-.75.75H.75a.75.75 0 010-1.5h2.25A.75.75 0 013 12zM6.166 5.106a.75.75 0 00-1.06 1.06l1.59 1.591a.75.75 0 101.061-1.06l-1.59-1.591z"></path></svg>
             <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor"><path fill-rule="evenodd" d="M9.528 1.718a.75.75 0 01.162.819A8.97 8.97 0 009 6a9 9 0 009 9 8.97 8.97 0 003.463-.69.75.75 0 01.981.98 10.503 10.503 0 01-9.694 6.46c-5.799 0-10.5-4.701-10.5-10.5 0-3.51 1.713-6.635 4.398-8.552a.75.75 0 01.818.162z" clip-rule="evenodd"></path></svg>
         </div>
-
-        <!-- 
-        ==========================================================================
-        SECTION 4: Grace
-        ==========================================================================
-        -->
+        
         <section id="section-4" class="min-h-screen py-20 px-4 flex items-center justify-center">
             <div class="max-w-2xl text-center reveal">
                 <h2 class="font-heading text-4xl md:text-5xl text-white mb-8">Grace</h2>
                 <div class="text-lg leading-relaxed space-y-6 italic" style="color: var(--text-secondary);">
-                    <p>I woke up late... not knowing I’d left you in midair.</p>
-                    <p>That night, I carried my apology with care.<br>But I asked, through a tender breath,<br>“Is this space safe enough to share?”</p>
-                    <p>My breath in pieces, slow and rough.<br>But you stayed soft, you didn’t flinch<br>your gentleness was just enough.</p>
-                    <p>You said, “I didn’t see it clear.”<br>And in that moment, grace arrived<br>not loud, just choosing me to stay.</p>
-                    <p>Because you’re still that—don’t you see?<br>You’re still my home, my heart, my friend.</p>
-                    <p class="font-semibold not-italic" style="color: var(--text-warm-white);">Mistakes will come—but so will grace,<br>and I’ll keep giving mine to you.</p>
+                    <p>I woke up late, the sun already down,<br>your message waiting, quietly there.<br>But I moved first, stretched, exhaled<br>not knowing I’d left you in midair.</p>
+                    <p>It wasn’t meant, not in the way that hurts,<br>just a moment I held for myself.<br>But you felt the gap, the still reply,<br>and it sat heavy, all by itself.</p>
+                    <p>You told me you felt left behind,<br>like a page that someone meant to turn.<br>And I felt the sting of that,<br>the way small things can twist and burn.<br>That night, beneath a quiet sky,</p>
+                    <p>I carried my apology with care.<br>But I asked, through a tender breath,<br>“Is this space safe enough to share?”<br>I said I felt like I can’t misstep,<br>that even silence shakes your ground</p>
+                    <p>that every pause becomes a weight<br>and I forget how to be found.<br>Like if I falter, you might fall,<br>and I must hold us both alone.</p>
+                    <p>Like loving you means walking tightropes<br>on threads stretched thin across unknowns.<br>And you were on the other end<br>your voice warm through a speaker’s hum.</p>
+                    <p>I couldn’t even turn my cam,<br>my words came out in sobs, gone numb.<br>Sniffles broke my every line,<br>my breath in pieces, slow and rough.</p>
+                    <p>But you stayed soft, you didn’t flinch<br>your gentleness was just enough.<br>You said, “I didn’t see it clear.<br>I didn’t know you felt that way.”</p>
+                    <p>And in that moment, grace arrived<br>not loud, just choosing me to stay.<br>There was a pause, the kind that heals,<br>where nothing needed to be fixed.</p>
+                    <p>Just space to feel, to touch the truth,<br>to let our shadows gently mix.<br>You told me then, through tears and thought,<br>how your emotions take the wheel</p>
+                    <p>how sometimes, spirals drive too fast<br>before you know what’s false or real.<br>You said, “I used to give you grace,<br>without the fear or tight demands.</p>
+                    <p>I used to be your softest place.”<br>And we both cried, holding hands<br>Not really, but in the way<br>two voices tremble into light,</p>
+                    <p>and somehow through a call alone<br>we still held each other that night.<br>Because you’re still that—don’t you see?<br>You’re still my home, my heart, my friend.<br>And loving you through growing pains<br>is something I will never end.<br>Because when you listened—really listened<br>you forgave me without asking why.<br>And that kind of love, that kind of peace,<br>is rare, and deep, and makes me cry.</p>
+                    <p>I don’t resent the cracks we find,<br>they show we’re real, and raw, and true.<br>Mistakes will come—but so will grace,<br>and I’ll keep giving mine to you.</p>
+                    <p class="font-semibold not-italic" style="color: var(--text-warm-white);">So thank you for the way you stay,<br>for meeting fear with soft embrace.<br>You’ll always be my steady light,<br>my safest home, my quiet place.</p>
                 </div>
             </div>
         </section>
 
-        <!-- 
-        ==========================================================================
-        FOOTER / CONCLUSION
-        ==========================================================================
-        -->
         <footer class="w-full h-screen flex flex-col items-center justify-center text-center p-4">
             <div class="reveal">
                 <p class="font-heading text-3xl md:text-5xl title-glow">You'll always be my steady light,<br>my safest home, my quiet place.</p>
@@ -295,11 +274,6 @@
         </footer>
     </main>
 
-    <!-- 
-    ==========================================================================
-    JAVASCRIPT FOR SCROLL ANIMATIONS (Unchanged)
-    ==========================================================================
-    -->
     <script>
         const revealElements = document.querySelectorAll(".reveal");
         const observer = new IntersectionObserver((entries) => {
@@ -313,11 +287,6 @@
         revealElements.forEach(element => observer.observe(element));
     </script>
 
-    <!-- 
-    ==========================================================================
-    ADVANCED JAVASCRIPT FOR STARFIELD BACKGROUND (Refined for subtlety)
-    ==========================================================================
-    -->
     <script>
         const canvas = document.getElementById('starfield');
         const ctx = canvas.getContext('2d');
@@ -337,16 +306,16 @@
                 this.y = a(0, canvas.height);
                 this.radius = a(0.4, 1.2);
                 this.vx = a(-0.05, 0.05);
-                this.vy = a(0.1, 0.3); // Slower drift
+                this.vy = a(0.1, 0.3);
                 this.alpha = a(0.3, 1);
-                this.twinkleSpeed = a(0.005, 0.015); // Slower twinkle
+                this.twinkleSpeed = a(0.005, 0.015);
                 this.twinklePhase = a(0, Math.PI * 2);
             }
 
             draw() {
                 ctx.beginPath();
                 ctx.arc(this.x, this.y, this.radius, 0, Math.PI * 2);
-                ctx.fillStyle = `rgba(234, 224, 213, ${this.alpha})`; // Use the warm white for stars
+                ctx.fillStyle = `rgba(234, 224, 213, ${this.alpha})`;
                 ctx.fill();
             }
 
@@ -375,7 +344,7 @@
                 this.x = a(canvas.width * 0.2, canvas.width * 0.8);
                 this.y = a(0, canvas.height * 0.2);
                 this.len = a(80, 150);
-                this.speed = a(7, 12); // Slower shooting star
+                this.speed = a(7, 12);
                 this.alpha = 1;
                 this.active = true;
             }
@@ -419,7 +388,6 @@
             shootingStar.update();
             shootingStar.draw();
             
-            // Rarer shooting stars
             if (!shootingStar.active && Math.random() < 0.001) {
                 shootingStar.reset();
             }
