@@ -8,7 +8,7 @@
     <!-- Tailwind CSS via CDN -->
     <script src="https://cdn.tailwindcss.com"></script>
     
-    <!-- Google Fonts: Playfair Display for headings, Poppins as a Century Gothic alternative -->
+    <!-- Google Fonts: Playfair Display for headings, Poppins -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,600;1,400&family=Poppins:wght@300;400;500;600&display=swap" rel="stylesheet">
@@ -16,16 +16,16 @@
     <style>
         /* 
         ==========================================================================
-        SUPERB & ADVANCED CSS SECTION V2.2
+        SUPERB & ADVANCED CSS SECTION V3
         ==========================================================================
-        AESTHETIC: "LATE NIGHT TALK FROM AN APARTMENT WINDOW"
-        This version updates the background image to a new scene while preserving
-        the established moody, soft-focus, and intimate vibe.
+        AESTHETIC: "A UNIVERSE OF MEMORIES"
+        This version replaces the static image with a fully dynamic, procedurally
+        generated starfield canvas animation. The background is now an integral,
+        living part of the theme.
         ==========================================================================
         */
 
         :root {
-            /* Palette remains the same: Twilight Sky */
             --bg-dark-start: #1a2035;
             --bg-dark-end: #0f101c;
             --text-primary: rgba(239, 239, 245, 0.95);
@@ -37,8 +37,10 @@
 
         /* 
         ========================================
-        Parallax & Rain Background
+        Dynamic Starfield Background
         ========================================
+        The canvas element will be positioned fixed, behind all content.
+        The body retains its gradient for a deep space feel.
         */
         body {
             background-color: var(--bg-dark-end);
@@ -49,33 +51,15 @@
             -moz-osx-font-smoothing: grayscale;
         }
         
-        .parallax-bg {
+        #starfield {
             position: fixed;
             top: 0;
             left: 0;
             width: 100%;
-            height: 100vh;
-            /* === THE FIX IS HERE: NEW, WORKING IMAGE URL === */
-            background-image: url('https://images.unsplash.com/photo-1534067783941-51c9c23ecefd?ixlib=rb-4.0.3&auto=format&fit=crop&w=1974&q=80'); /* New, stable link to a rainy street with bokeh */
-            background-size: cover;
-            background-position: center center;
-            z-index: -2;
-            opacity: 0.4;
+            height: 100%;
+            z-index: -1; /* Place it behind all other content */
         }
         
-        .rain-overlay {
-            position: fixed;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100vh;
-            background-image: url('https://i.imgur.com/83p5gEj.gif');
-            background-size: cover;
-            opacity: 0.1;
-            z-index: -1;
-            mix-blend-mode: screen;
-        }
-
         /* Custom font classes */
         .font-heading {
             font-family: 'Playfair Display', serif;
@@ -89,8 +73,9 @@
 
         /* 
         ========================================
-        Glassmorphism UI Card
+        Glassmorphism UI Card - More important than ever
         ========================================
+        This effect will look stunning floating over the animated starfield.
         */
         .glass-card {
             background-color: rgba(26, 32, 53, 0.25);
@@ -132,7 +117,7 @@
         
         /* 
         ========================================
-        Symbolic Moon & Star Divider
+        Symbolic Moon & Star Divider - Now more thematic than ever
         ========================================
         */
         .symbol-divider {
@@ -173,23 +158,22 @@
 </head>
 <body class="overflow-x-hidden">
 
-    <!-- The Parallax Background Elements -->
-    <div class="parallax-bg"></div>
-    <div class="rain-overlay"></div>
+    <!-- The Animated Starfield Canvas -->
+    <canvas id="starfield"></canvas>
 
     <!-- 
     ==========================================================================
     HERO SECTION
     ==========================================================================
     -->
-    <header class="h-screen w-full flex flex-col justify-center items-center text-center p-4">
+    <header class="h-screen w-full flex flex-col justify-center items-center text-center p-4 relative z-10">
         <div class="max-w-3xl reveal is-visible">
             <h1 class="font-heading text-6xl md:text-8xl font-semibold title-glow">For My Star</h1>
             <p class="mt-6 text-lg md:text-xl text-stone-200">
                 A collection of late-night thoughts and feelings I've held onto.
                 <br>This is our story, told in moments.
             </p>
-            <a href="#section-1" class="btn-primary mt-12">Step inside</a>
+            <a href="#section-1" class="btn-primary mt-12">Step into our universe</a>
         </div>
         <div class="absolute bottom-10 animate-bounce text-stone-300">
             <svg class="w-6 h-6" fill="none" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" viewBox="0 0 24 24" stroke="currentColor">
@@ -198,7 +182,7 @@
         </div>
     </header>
 
-    <main class="w-full">
+    <main class="w-full relative z-10">
     
         <!-- 
         ==========================================================================
@@ -235,8 +219,8 @@
                         <p class="mt-4 text-stone-300">A realization that changed everything.</p>
                     </div>
                     <div class="md:col-span-2 text-base md:text-lg leading-relaxed space-y-6 text-stone-300">
-                        <p>I’ve been holding this in my chest for a while now... because what happened that day meant more to me than I think you realized.</p>
-                        <p>It was our first real fight... a small disagreement. When I finally woke up, guilt hit me. I hated knowing I made you feel like I didn’t care when really, I care so much it aches sometimes.</p>
+                        <p>I’ve been holding this in my chest... because what happened that day meant more to me than I think you realized.</p>
+                        <p>It was our first real fight... a small disagreement. I hated knowing I made you feel like I didn’t care when really, I care so much it aches sometimes.</p>
                         <p>So I cried. Not because you yelled. You didn’t. I cried because you didn’t become someone else in your frustration. <span class="font-semibold text-white">Because you stayed you.</span></p>
                         
                         <blockquote class="my-6">
@@ -266,7 +250,7 @@
                 <p class="text-center text-stone-300 mb-10">When "I miss you" became real.</p>
                 <div class="text-lg leading-relaxed space-y-6 text-stone-300">
                     <p>It finally happened. The kind of missing that claws at your chest until it spills out in tears. Summer class was one of the hardest, most exhausting times.</p>
-                    <p>I was barely hanging on. My anxiety was through the roof. Home wasn’t even home. I had no space to breathe. I missed you every day... but one night, I typed “I miss you” like I always did. Then I broke.</p>
+                    <p>I was barely hanging on. I had no space to breathe. I missed you every day... but one night, I typed “I miss you” like I always did. Then I broke.</p>
                     <p>I wanted you so badly in that moment, not just to talk to, but to hold me. To ground me. I didn’t want to be brave or strong. <span class="font-semibold text-white">I just wanted you.</span></p>
 
                     <blockquote class="my-8 py-6 text-xl text-center">
@@ -319,26 +303,143 @@
 
     <!-- 
     ==========================================================================
-    JAVASCRIPT FOR ANIMATIONS (Unchanged)
+    JAVASCRIPT FOR SCROLL ANIMATIONS
     ==========================================================================
     -->
     <script>
         const revealElements = document.querySelectorAll(".reveal");
-
-        const observer = new IntersectionObserver((entries, observer) => {
+        const observer = new IntersectionObserver((entries) => {
             entries.forEach(entry => {
                 if (entry.isIntersecting) {
                     entry.target.classList.add("is-visible");
                     observer.unobserve(entry.target);
                 }
             });
-        }, {
-            threshold: 0.1
-        });
+        }, { threshold: 0.1 });
+        revealElements.forEach(element => observer.observe(element));
+    </script>
 
-        revealElements.forEach(element => {
-            observer.observe(element);
-        });
+    <!-- 
+    ==========================================================================
+    ADVANCED JAVASCRIPT FOR STARFIELD BACKGROUND
+    ==========================================================================
+    This script creates the dynamic, animated starfield. It's performant and
+    runs entirely in the background.
+    ==========================================================================
+    -->
+    <script>
+        const canvas = document.getElementById('starfield');
+        const ctx = canvas.getContext('2d');
+
+        function resizeCanvas() {
+            canvas.width = window.innerWidth;
+            canvas.height = window.innerHeight;
+        }
+        window.addEventListener('resize', resizeCanvas);
+        resizeCanvas();
+
+        const a = (min, max) => Math.random() * (max - min) + min;
+
+        class Star {
+            constructor() {
+                this.x = a(0, canvas.width);
+                this.y = a(0, canvas.height);
+                this.radius = a(0.5, 1.5);
+                this.vx = a(-0.1, 0.1);
+                this.vy = a(0.2, 0.4); // Slow downward drift for parallax
+                this.alpha = a(0.3, 1);
+                this.twinkleSpeed = a(0.01, 0.03);
+                this.twinklePhase = a(0, Math.PI * 2);
+            }
+
+            draw() {
+                ctx.beginPath();
+                ctx.arc(this.x, this.y, this.radius, 0, Math.PI * 2);
+                ctx.fillStyle = `rgba(255, 227, 179, ${this.alpha})`; // Warm gold color
+                ctx.fill();
+            }
+
+            update() {
+                this.x += this.vx;
+                this.y += this.vy;
+                
+                // Twinkle effect
+                this.alpha = 0.5 + 0.5 * Math.sin(this.twinklePhase);
+                this.twinklePhase += this.twinkleSpeed;
+
+                // Reset star if it goes off screen
+                if (this.y > canvas.height + this.radius) {
+                    this.y = -this.radius;
+                    this.x = a(0, canvas.width);
+                }
+                if (this.x < -this.radius) this.x = canvas.width + this.radius;
+                if (this.x > canvas.width + this.radius) this.x = -this.radius;
+            }
+        }
+        
+        class ShootingStar {
+            constructor() {
+                this.reset();
+            }
+
+            reset() {
+                this.x = a(0, canvas.width);
+                this.y = a(-100, 0);
+                this.len = a(100, 200);
+                this.speed = a(8, 15);
+                this.alpha = 1;
+                this.active = true;
+            }
+
+            draw() {
+                if (!this.active) return;
+                const gradient = ctx.createLinearGradient(this.x, this.y, this.x, this.y - this.len);
+                gradient.addColorStop(0, `rgba(255, 211, 105, ${this.alpha})`);
+                gradient.addColorStop(1, `rgba(255, 211, 105, 0)`);
+                ctx.beginPath();
+                ctx.moveTo(this.x, this.y);
+                ctx.lineTo(this.x, this.y - this.len);
+                ctx.strokeStyle = gradient;
+                ctx.lineWidth = 1.5;
+                ctx.stroke();
+            }
+
+            update() {
+                if (!this.active) return;
+                this.y += this.speed;
+                if (this.y - this.len > canvas.height) {
+                    this.active = false;
+                }
+            }
+        }
+
+        const numStars = window.innerWidth / 4;
+        const stars = Array.from({ length: numStars }, () => new Star());
+        let shootingStar = new ShootingStar();
+
+        function animate() {
+            // Clear canvas with a trail effect
+            ctx.fillStyle = 'rgba(15, 16, 28, 0.2)';
+            ctx.fillRect(0, 0, canvas.width, canvas.height);
+
+            stars.forEach(star => {
+                star.update();
+                star.draw();
+            });
+            
+            shootingStar.update();
+            shootingStar.draw();
+            
+            // Randomly create a new shooting star
+            if (!shootingStar.active && Math.random() < 0.002) {
+                shootingStar.reset();
+            }
+
+            requestAnimationFrame(animate);
+        }
+
+        animate();
+
     </script>
 
 </body>
